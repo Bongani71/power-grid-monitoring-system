@@ -1,0 +1,16 @@
+venv/
+venv_312/
+.env
+__pycache__/
+*.pyc
+power_grid.db
+docs_screenshot.png
+System_Documentation.pdf
+pdf_log.txt
+debug_forecast.py
+.pytest_cache/
+.coverage
+htmlcov/
+forecasting/model.pkl
+models/*.pkl
+.DS_Store
