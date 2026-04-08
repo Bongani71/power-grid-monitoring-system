@@ -1,5 +1,9 @@
 # Power Grid Monitoring System
 
+🚀 **Live Preview (API & Dashboard):** [Explore the Live System here](https://power-grid-monitoring-system-1.onrender.com/)
+
+*(Note: Hosted on a free-tier cloud service. If it has been inactive, it may take 30-50 seconds to manually wake up on your first visit!)*
+
 ## Overview
 The **Power Grid Monitoring System** is a full-stack solution designed to track electricity usage and predict overload risks to support proactive decision-making. 
 
