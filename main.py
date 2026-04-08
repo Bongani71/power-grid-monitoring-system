@@ -36,12 +36,32 @@ except Exception:
     forecast_mae = 0.0
 
 
+import subprocess
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Application startup: initialise database tables."""
+    """Application startup: initialise database tables and auto-seed data if empty."""
     print("⚡ Power Grid Monitoring System - API Starting...")
     init_db()
     print("✅ Database tables initialised")
+    
+    print("🌱 Running automatic database seeder...")
+    subprocess.run([sys.executable, "seed.py"])
+    
+    print("🧠 Training forecasting model...")
+    subprocess.run([sys.executable, "forecasting/train_model.py"])
+    
+    # Reload the model dynamically so predictions work immediately
+    global forecast_model, forecast_mae
+    try:
+        if os.path.exists(FORECAST_MODEL_PATH):
+            import joblib
+            forecast_artifacts = joblib.load(FORECAST_MODEL_PATH)
+            forecast_model = forecast_artifacts["model"]
+            forecast_mae = forecast_artifacts.get("mae", 0.0)
+    except Exception as e:
+        print(f"⚠️ Could not load model after training: {e}")
+
     yield
     print("🔌 API shutting down")
 
