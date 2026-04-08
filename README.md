@@ -60,3 +60,14 @@ This platform continuously monitors the ongoing load on substation components, u
 
 ## Documentation
 Additional architectural details, decision logs, and API reference can be found in `System_Documentation.pdf`.
+
+## Dashboard Preview
+
+### Operations Control Room
+![dashboard](screenshots/dashboard.png)
+
+### Predictive Analysis
+![forecast](screenshots/forecast.png)
+
+### Incident Management
+![incidents](screenshots/incidents.png)
